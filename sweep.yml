@@ -1,0 +1,74 @@
+program: "./src/runner.py"
+method: grid
+project: "your_project_name"
+name: "name" 
+
+parameters:
+
+# dataset
+  dataset:
+    # value: "energy-consumption" 
+    value: "air-quality"
+  
+  seed:
+    value: 42
+  n_runs:
+    value: 1
+
+  basemodel:
+    values: ["Linear"]
+  # quantilemodel:
+  #   values: ["QuantileLinear", "GradientBoosting"]
+  n_hidden:
+    value: 2 # for MLP
+  hidden_layer_sizes:
+    value: 100 # for MLP
+  epochs:
+    value: 50 # for MLP
+  lr:
+    value: 0.001 # for MLP
+  batch_size:
+    value: 32 # for MLP
+
+# conformal
+  cp_method_original:
+    values: ["aci"]
+  cp_method_trend:
+    values: ["aci"]
+  cp_method_seasonal:
+    values: ["local_cp"]
+  cp_method_noise:
+    values: ["cv_plus"]
+
+  local_cp_method:
+    values: ["periodic"]
+  
+  # all conformal methods
+  alpha:  
+    value: 0.1
+  
+   # ACI only
+  gamma: 
+    value: 0.01
+  replace_inf_method:
+    values: ["max"]
+  
+  # EnbPI only
+  n_bs_samples:
+    values: [20]
+  length:  # bootstrap
+    value: 1
+  
+  # CV+ only
+  k:
+    value: 20
+  
+  # periodic only
+  use_region:
+    value: 1
+  use_exponential:
+    value: 0
+
+  # saving
+  save_dir:
+    value: "./saved_outputs"

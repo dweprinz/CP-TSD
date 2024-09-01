@@ -1,0 +1,15 @@
+**/__pycache__/*
+bin/*
+lib/*
+lib64/*
+lib64
+share/*
+pyvenv.cfg
+.venv/
+.wsl_venv/
+.history
+wandb/*
+saved-outputs/*
+.DS_Store
+etc/*
+include/*
